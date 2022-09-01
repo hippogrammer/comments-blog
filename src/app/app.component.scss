@@ -1,0 +1,90 @@
+@media only screen and (max-width: 753px) {
+  #commentsContainer {
+    width: 100% !important;
+  }
+}
+
+#commentsContainer {
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+  max-height: 100%;
+}
+#toast {
+  visibility: hidden;
+  max-width: 350px;
+  height: 50px;
+  /*margin-left: -125px;*/
+  margin: auto;
+  background-color: rgb(172, 172, 172);
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+  padding: 1rem 0.7rem 0.5rem 0.7rem;
+  position: fixed;
+  z-index: 1;
+  right: 10px;
+  top: 30px;
+  font-size: 17px;
+  white-space: nowrap;
+  i {
+    margin-right: 0.5rem;
+    position: relative;
+    top: 6px;
+  }
+}
+#toast.success {
+  background-color: rgb(65 171 65);
+}
+
+#toast.error {
+  background-color: red($color: #b84343);
+}
+#toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 4.5s;
+}
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 60px;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 60px;
+    opacity: 0;
+  }
+}

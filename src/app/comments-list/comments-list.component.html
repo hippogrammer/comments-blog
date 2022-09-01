@@ -1,0 +1,17 @@
+<div class="comments-list-container">
+  <div class="comment-card" *ngFor="let comment of commentsList">
+    <div class="comment-card-wrapper">
+      {{ comment.message }}
+    </div>
+    <div class="comment-footer">
+      <div class="comment-details">
+        <span>
+          <i>
+            <b>{{ comment.name }}</b> on
+            {{ comment.created | date: "MMMM d, y, h:mm:ss a" }}
+          </i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

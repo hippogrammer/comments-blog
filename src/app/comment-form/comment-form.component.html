@@ -1,0 +1,99 @@
+<div class="comment-form-container" *ngIf="commentForm">
+  <form [formGroup]="commentForm" id="commentForm">
+    <div class="form-control">
+      <label for="commenterName" hidden>Name</label>
+      <input
+        id="commenterName"
+        type="text"
+        placeholder="Your Name"
+        formControlName="name"
+        [attr.aria-errormessage]="'requiredNameError'"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="submitted && commentForm.controls['name'].errors"
+      >
+        <div
+          id="requiredNameError"
+          role="alert"
+          class="error-message"
+          *ngIf="commentForm.controls['name'].errors['required']"
+        >
+          Name is required
+        </div>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="commentContent" hidden>Comment</label>
+      <textarea
+        id="commentContent"
+        placeholder="Write your comment here.."
+        [class]="
+          submitted && commentForm.controls['message'].errors ? 'invalid' : ''
+        "
+        [attr.aria-invalid]="
+          submitted && commentForm.controls['message'].errors !== null
+        "
+        [attr.aria-errormessage]="getErrorMessageId()"
+        formControlName="message"
+      ></textarea>
+      <div
+        class="after-textarea"
+        [style.justify-content]="
+          submitted && commentForm.controls['message'].errors
+            ? 'space-between'
+            : 'flex-end'
+        "
+      >
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && commentForm.controls['message'].errors"
+        >
+          <div
+            id="requiredCommentError"
+            role="alert"
+            class="error-message"
+            *ngIf="commentForm.controls['message'].errors['required']"
+          >
+            Comment is required
+          </div>
+          <div
+            id="minLengthError"
+            role="alert"
+            class="error-message"
+            *ngIf="commentForm.controls['message'].errors['minlength']"
+          >
+            Comment must be at least 5 characters
+          </div>
+          <div
+            id="maxLengthError"
+            role="alert"
+            class="error-message"
+            *ngIf="commentForm.controls['message'].errors['maxlength']"
+          >
+            Comment exceeds 1500 characters
+          </div>
+        </div>
+        <div class="char-count">
+          {{ commentForm.controls["message"].value?.length || 0 }} / 1500
+          characters remaining
+        </div>
+      </div>
+    </div>
+    <div class="comment-btn-container">
+      <div class="comment-btns-wrapper">
+        <button type="submit" id="submitComment" (click)="onSubmitClicked()">
+          Comment
+        </button>
+        <button
+          id="clearComments"
+          (click)="onClearCommentsButtonClick.emit()"
+          [disabled]="!enableClear"
+          [ngClass]="{ 'disable-btn': !enableClear }"
+        >
+          Delete Comments
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

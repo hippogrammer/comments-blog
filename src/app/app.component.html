@@ -1,0 +1,18 @@
+<div id="commentsContainer">
+  <app-comment-form
+    [commentForm]="commentForm"
+    [enableClear]="!!(allComments$ | async)?.length"
+    (onCommentButtonClick)="onCommentSubmitted()"
+    (onClearCommentsButtonClick)="onClearCommentsButtonClick()"
+  ></app-comment-form>
+  <app-comments-list [commentsList]="allComments$ | async"></app-comments-list>
+</div>
+<div
+  id="toast"
+  #toast
+  [ngClass]="{ success: currentToast?.success, error: !currentToast?.success }"
+  onclick="this.hidden = true"
+>
+  <i class="material-icons">{{ currentToast?.icon_shape }}</i
+  >{{ currentToast?.message }}
+</div>

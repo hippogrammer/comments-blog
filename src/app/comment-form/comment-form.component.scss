@@ -1,0 +1,88 @@
+.comment-form-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  #commentForm {
+    padding: 0 5vh;
+
+    .form-control {
+      width: 100%;
+      margin-top: 1vh;
+      box-sizing: border-box;
+      input {
+        border: none;
+        border-bottom: 1px solid lightgray;
+      }
+      input:focus-visible {
+        border: none;
+        border-bottom: solid 2px gray;
+        padding: 0;
+        outline: none;
+      }
+      textarea:focus-visible {
+        outline: solid 2px gray !important;
+      }
+      input,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1rem;
+        background-color: white;
+      }
+      #commentContent {
+        overflow: auto;
+        outline: 1px solid lightgray;
+        border: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        resize: none;
+        font-family: inherit !important;
+        display: block;
+        height: 15vh;
+      }
+      .after-textarea {
+        display: flex;
+        .char-count {
+          display: flex;
+          justify-content: flex-end;
+          font-size: smaller;
+        }
+      }
+      .invalid-feedback {
+        .error-message {
+          font-size: smaller;
+          color: red;
+        }
+      }
+    }
+    .comment-btn-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1vh;
+      .comment-btns-wrapper {
+        #submitComment {
+          margin-right: 1rem;
+        }
+        button {
+          background: none;
+          color: inherit;
+          border: 1px rgb(156, 156, 156) solid;
+          padding: 1rem 2rem;
+
+          font: inherit;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: rgb(216, 216, 216);
+        }
+        .disable-btn {
+          background-color: rgb(216, 216, 216);
+        }
+      }
+    }
+  }
+}
