@@ -64,3 +64,12 @@ We recommend spending up to four hours on this assignment. If you don't get ever
 $ npm install
 $ npm run dev
 ```
+### Run the Angular Server
+```
+$ ng serve
+```
+
+### Run Unit Tests
+```
+$ ng test
+```
